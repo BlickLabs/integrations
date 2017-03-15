@@ -35,7 +35,7 @@ class MailgunGenericContactView(View):
             endpoint, auth=('api', key), data={
             'from': '{0} <postmaster@{1}>'.format(self.FROM_TEXT, domain),
             'to': recipient,
-            'subject': 'Nuevo contacto desde pagina web',
+            'subject': 'New contact from web page',
             'text': body
         })
 
