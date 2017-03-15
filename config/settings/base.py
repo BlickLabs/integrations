@@ -43,7 +43,9 @@ THIRD_PARTY_APPS = (
 )
 
 # Apps specific for this project go here.
-LOCAL_APPS = ()
+LOCAL_APPS = (
+    'integrations.apps.mailgun',
+)
 
 INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + LOCAL_APPS
 
@@ -146,3 +148,9 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+
+MAILGUN_API_KEY = env('MAILGUN_API_KEY')
+
+FINACERO_MAILGUN_DOMAIN = env('FINACERO_MAILGUN_DOMAIN')
+FINACERO_MAILGUN_RECIPIENT = env('FINACERO_MAILGUN_RECIPIENT')
+
