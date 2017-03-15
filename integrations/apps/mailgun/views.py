@@ -12,3 +12,20 @@ class FinaceroContactView(MailgunGenericContactView):
     RECIPIENT = settings.FINACERO_MAILGUN_RECIPIENT
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'Finacero'
+
+
+class RochaLanderosContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.ROCHA_LANDEROS_MAILGUN_DOMAIN
+    RECIPIENT = settings.ROCHA_LANDEROS_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'Rocha Landeros'
+
+
+class WorkingLabsContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.WORKING_LABS_MAILGUN_DOMAIN
+    RECIPIENT = settings.WORKING_LABS_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'Working Labs'
+
