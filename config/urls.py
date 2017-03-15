@@ -9,12 +9,13 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views import defaults as error_views
 
+from integrations.apps.mailgun import  urls as mailgun_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     # Custom urls
-    # url(r'', include(module_urls, namespace='module')),
+    url(r'', include(mailgun_urls, namespace='mailgun')),
 ]
 
 if settings.DEBUG:
