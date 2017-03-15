@@ -3,8 +3,8 @@
 
 # Debugging
 # -----------------------------------------------------------------------------
-django-debug-toolbar
+django-debug-toolbar==1.7
 
 # Your custom requirements go here
 # -----------------------------------------------------------------------------
-django-extensions
+django-extensions==1.7.7
