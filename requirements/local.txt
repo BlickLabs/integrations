@@ -1,0 +1,10 @@
+# Local development dependencies go here
+-r base.txt
+
+# Debugging
+# -----------------------------------------------------------------------------
+django-debug-toolbar==1.7
+
+# Your custom requirements go here
+# -----------------------------------------------------------------------------
+django-extensions==1.7.7
