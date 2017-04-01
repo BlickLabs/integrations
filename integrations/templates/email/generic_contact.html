@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generic Contact</title>
+</head>
+<body>
+  {% if name %}
+    <p>
+      Nombre: {{ name }} {{ last_name }}
+    </p>
+  {% endif %}
+  {% if email %}
+    <p>
+      Correo electónico: {{ email }}
+    </p>
+  {% endif %}
+  {% if phone %}
+    <p>
+      Teléfono: {{ phone }}
+    </p>
+  {% endif %}
+  {% if company %}
+    <p>
+      Compañia: {{ company }}
+    </p>
+  {% endif %}
+  {% if address %}
+    <p>
+      Dirección: {{ address }}
+    </p>
+  {% endif %}
+  {% if message %}
+    <p>
+      Mensaje: <br>
+      {{ message }}
+    </p>
+  {% endif %}
+</body>
+</html>
