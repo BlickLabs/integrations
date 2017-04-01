@@ -24,8 +24,12 @@ class MailgunGenericContactView(View):
 
         ctx = {
             'name': request.POST.get('name'),
+            'last_name': request.POST.get('last_name'),
             'email': request.POST.get('email'),
             'message': request.POST.get('message'),
+            'phone': request.POST.get('phone'),
+            'address': request.POST.get('address'),
+            'company': request.POST.get('company'),
         }
 
         body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
@@ -35,8 +39,8 @@ class MailgunGenericContactView(View):
             endpoint, auth=('api', key), data={
             'from': '{0} <postmaster@{1}>'.format(self.FROM_TEXT, domain),
             'to': recipient,
-            'subject': 'New contact from web page',
-            'text': body
+            'subject': 'Nuevo contacto desde pagina web',
+            'html': body
         })
 
         if response.status_code != 200:
