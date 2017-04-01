@@ -29,3 +29,6 @@ ALLOWED_HOSTS = ["*"]
 MEDIA_ROOT = str(PROJECT_DIR('media'))
 
 MEDIA_URL = '/media/'
+
+STATIC_URL = '/static/'
+STATIC_ROOT = str(PROJECT_DIR('staticfiles'))
