@@ -40,6 +40,7 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'suit',
+    'corsheaders',
 )
 
 # Apps specific for this project go here.
@@ -61,6 +62,8 @@ DATABASES = {
 # -----------------------------------------------------------------------------
 MIDDLEWARE_CLASSES = (
     # Make sure djangosecure.middleware.SecurityMiddleware is listed first
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -150,6 +153,8 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 MAILGUN_API_KEY = env('MAILGUN_API_KEY', default='CHANGEME!!!')
 
 FINACERO_MAILGUN_DOMAIN = env('FINACERO_MAILGUN_DOMAIN', default='CHANGEME!!!')
@@ -162,5 +167,13 @@ FINACERO_MAILCHIMP_LIST_ID = env('FINACERO_MAILCHIMP_LIST_ID', default='CHANGEME
 ROCHA_LANDEROS_MAILGUN_DOMAIN = env('ROCHA_LANDEROS_MAILGUN_DOMAIN', default='CHANGEME!!!')
 ROCHA_LANDEROS_MAILGUN_RECIPIENT = env('ROCHA_LANDEROS_MAILGUN_RECIPIENT', default='CHANGEME!!!')
 
+ROCHA_LANDEROS_MAILCHIMP_API_KEY = env('ROCHA_LANDEROS_MAILCHIMP_API_KEY', default='CHANGEME!!!')
+ROCHA_LANDEROS_MAILCHIMP_SHARD = env('ROCHA_LANDEROS_MAILCHIMP_SHARD', default='CHANGEME!!!')
+ROCHA_LANDEROS_MAILCHIMP_LIST_ID = env('ROCHA_LANDEROS_MAILCHIMP_LIST_ID', default='CHANGEME!!!')
+
 WORKING_LABS_MAILGUN_DOMAIN = env('WORKING_LABS_MAILGUN_DOMAIN', default='CHANGEME!!!')
 WORKING_LABS_MAILGUN_RECIPIENT = env('WORKING_LABS_MAILGUN_RECIPIENT', default='CHANGEME!!!')
+
+WORKING_LABS_MAILCHIMP_API_KEY = env('WORKING_LABS_MAILCHIMP_API_KEY', default='CHANGEME!!!')
+WORKING_LABS_MAILCHIMP_SHARD = env('WORKING_LABS_MAILCHIMP_SHARD', default='CHANGEME!!!')
+WORKING_LABS_MAILCHIMP_LIST_ID = env('WORKING_LABS_MAILCHIMP_LIST_ID', default='CHANGEME!!!')
