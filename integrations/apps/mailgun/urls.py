@@ -15,8 +15,16 @@ urlpatterns = [
         view=views.RochaLanderosContactView.as_view(),
         name='rochalanderos_email'),
 
+    url(regex='^rochalanderos/carrers/$',
+        view=views.RochaLanderosCarrerView.as_view(),
+        name='rochalanderos_email'),
+
     url(regex='^workinglabs/email/$',
         view=views.WorkingLabsContactView.as_view(),
         name='workinglabs_email'),
+
+    url(regex='^workinglabs/free/$',
+        view=views.WorkingLabsFreeDayView.as_view(),
+        name='workinglabs_free'),
 
 ]
