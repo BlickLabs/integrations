@@ -10,12 +10,15 @@ from django.contrib import admin
 from django.views import defaults as error_views
 
 from integrations.apps.mailgun import  urls as mailgun_urls
+from integrations.apps.mailchimp import urls as mailchimp_urls
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     # Custom urls
     url(r'', include(mailgun_urls, namespace='mailgun')),
+    url(r'', include(mailchimp_urls, namespace='mailchimp')),
 ]
 
 if settings.DEBUG:
