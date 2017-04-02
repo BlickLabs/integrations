@@ -23,6 +23,10 @@ urlpatterns = [
         view=views.WorkingLabsContactView.as_view(),
         name='workinglabs_email'),
 
+    url(regex='^workinglabs/partner/$',
+        view=views.WorkingLabsPartnershipView.as_view(),
+        name='workinglabs_partner'),
+
     url(regex='^workinglabs/free/$',
         view=views.WorkingLabsFreeDayView.as_view(),
         name='workinglabs_free'),
