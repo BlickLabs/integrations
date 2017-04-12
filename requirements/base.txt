@@ -23,4 +23,5 @@ psycopg2==2.6.1
 # Your custom requirements go here
 # -----------------------------------------------------------------------------
 requests==2.13.0
-django-cors-headers
+django-cors-headers==2.0.2
+django-dotenv==1.4.1
