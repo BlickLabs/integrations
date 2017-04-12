@@ -19,4 +19,8 @@ urlpatterns = [
         view=views.RochaLanderosNewsletterView.as_view(),
         name='rochalanderos_newsletter'),
 
+    url(regex='^florelia/newsletter/$',
+        view=views.FloreliaNewsletterView.as_view(),
+        name='florelia_newsletter'),
+
 ]

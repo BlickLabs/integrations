@@ -16,7 +16,14 @@ class WorkingLabsNewsletterView(MailchimpGenericNewsletterView):
     LIST_ID = settings.WORKING_LABS_MAILCHIMP_LIST_ID
     SHARD = settings.WORKING_LABS_MAILCHIMP_SHARD
 
+
 class RochaLanderosNewsletterView(MailchimpGenericNewsletterView):
     KEY = settings.ROCHA_LANDEROS_MAILCHIMP_API_KEY
     LIST_ID = settings.ROCHA_LANDEROS_MAILCHIMP_LIST_ID
     SHARD = settings.ROCHA_LANDEROS_MAILCHIMP_SHARD
+
+
+class FloreliaNewsletterView(MailchimpGenericNewsletterView):
+    KEY = settings.FLORELIA_MAILCHIMP_API_KEY
+    LIST_ID = settings.FLORELIA_MAILCHIMP_LIST_ID
+    SHARD = settings.FLORELIA_MAILCHIMP_SHARD
