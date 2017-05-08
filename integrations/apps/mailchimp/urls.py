@@ -15,9 +15,9 @@ urlpatterns = [
         view=views.WorkingLabsNewsletterView.as_view(),
         name='workinglabs_newsletter'),
 
-    url(regex='^rochalanderos/newsletter/$',
-        view=views.RochaLanderosNewsletterView.as_view(),
-        name='rochalanderos_newsletter'),
+    url(regex='^rochalandero/newsletter/$',
+        view=views.RochaLanderoNewsletterView.as_view(),
+        name='rochalandero_newsletter'),
 
     url(regex='^florelia/newsletter/$',
         view=views.FloreliaNewsletterView.as_view(),
