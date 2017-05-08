@@ -33,7 +33,7 @@ class RochaLanderoCarrerView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.ROCHA_LANDERO_MAILGUN_DOMAIN
     RECIPIENT = settings.ROCHA_LANDERO_MAILGUN_RECIPIENT
-    EMAIL_TEMPLATE = 'email/rocha_landeros_carrers.html'
+    EMAIL_TEMPLATE = 'email/rocha_landero_carrers.html'
     FROM_TEXT = 'Rocha Landero'
     SUBJECT = 'Nuevo contacto desde Careers'
 
