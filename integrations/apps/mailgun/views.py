@@ -20,26 +20,26 @@ class FinaceroContactView(MailgunGenericContactView):
     SUBJECT = 'Nuevo contacto desde pagina web'
 
 
-class RochaLanderosContactView(MailgunGenericContactView):
+class RochaLanderoContactView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
-    DOMAIN = settings.ROCHA_LANDEROS_MAILGUN_DOMAIN
-    RECIPIENT = settings.ROCHA_LANDEROS_MAILGUN_RECIPIENT
+    DOMAIN = settings.ROCHA_LANDERO_MAILGUN_DOMAIN
+    RECIPIENT = settings.ROCHA_LANDERO_MAILGUN_RECIPIENT
     EMAIL_TEMPLATE = 'email/generic_contact.html'
-    FROM_TEXT = 'Rocha Landeros'
+    FROM_TEXT = 'Rocha Landero'
     SUBJECT = 'Nuevo contacto desde pagina web'
 
 
-class RochaLanderosCarrerView(MailgunGenericContactView):
+class RochaLanderoCarrerView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
-    DOMAIN = settings.ROCHA_LANDEROS_MAILGUN_DOMAIN
-    RECIPIENT = settings.ROCHA_LANDEROS_MAILGUN_RECIPIENT
+    DOMAIN = settings.ROCHA_LANDERO_MAILGUN_DOMAIN
+    RECIPIENT = settings.ROCHA_LANDERO_MAILGUN_RECIPIENT
     EMAIL_TEMPLATE = 'email/rocha_landeros_carrers.html'
-    FROM_TEXT = 'Rocha Landeros'
+    FROM_TEXT = 'Rocha Landero'
     SUBJECT = 'Nuevo contacto desde Careers'
 
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
-        return super(RochaLanderosCarrerView, self) \
+        return super(RochaLanderoCarrerView, self) \
             .dispatch(request, *args, **kwargs)
 
     def post(self, request):

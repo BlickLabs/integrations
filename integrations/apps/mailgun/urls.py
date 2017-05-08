@@ -11,13 +11,13 @@ urlpatterns = [
         view=views.FinaceroContactView.as_view(),
         name='finacero_email'),
 
-    url(regex='^rochalanderos/email/$',
-        view=views.RochaLanderosContactView.as_view(),
-        name='rochalanderos_email'),
+    url(regex='^rochalandero/email/$',
+        view=views.RochaLanderoContactView.as_view(),
+        name='rochalandero_email'),
 
-    url(regex='^rochalanderos/carrers/$',
-        view=views.RochaLanderosCarrerView.as_view(),
-        name='rochalanderos_email'),
+    url(regex='^rochalandero/carrers/$',
+        view=views.RochaLanderoCarrerView.as_view(),
+        name='rochalandero_email'),
 
     url(regex='^workinglabs/email/$',
         view=views.WorkingLabsContactView.as_view(),
