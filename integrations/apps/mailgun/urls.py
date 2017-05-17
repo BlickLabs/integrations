@@ -31,4 +31,8 @@ urlpatterns = [
         view=views.WorkingLabsFreeDayView.as_view(),
         name='workinglabs_free'),
 
+    url(regex='^neopraxis/contacto/$',
+        view=views.NeopraxisContact.as_view(),
+        name='workinglabs_free'),
+
 ]
