@@ -131,6 +131,8 @@ class WorkingLabsPartnershipView(MailgunGenericContactView):
             value = '1'
 
         return HttpResponse(value)
+
+
 class NeopraxisContact(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.NEOPRAXIS
@@ -171,6 +173,7 @@ class NeopraxisContact(MailgunGenericContactView):
             value = '1'
 
         return HttpResponse(value)
+
 
 class NeopraxisContactFree(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
