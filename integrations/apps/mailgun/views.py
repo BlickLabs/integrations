@@ -133,85 +133,10 @@ class WorkingLabsPartnershipView(MailgunGenericContactView):
         return HttpResponse(value)
 
 
-class NeopraxisContact(MailgunGenericContactView):
+class AguavientoContact(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
-    DOMAIN = settings.NEOPRAXIS
-    RECIPIENT = settings.NEOPRAXIS_RECIPIENT
+    DOMAIN = settings.AGUAVIENTO_DOMAIN
+    RECIPIENT = settings.AGUAVIENTO_RECIPIENT
     EMAIL_TEMPLATE = 'email/neopraxis_contact.html'
-    FROM_TEXT = 'Neopraxis'
-    SUBJECT = 'Nuevo contacto desde neopraxis.mx'
-
-    @method_decorator(csrf_exempt)
-    def dispatch(self, request, *args, **kwargs):
-        return super(NeopraxisContact, self) \
-            .dispatch(request, *args, **kwargs)
-
-    def post(self, request):
-        ctx = {
-            'name': request.POST.get('name'),
-            'email': request.POST.get('email'),
-            'phone': request.POST.get('phone'),
-            'message': request.POST.get('message'),
-            'byemail': request.POST.get('byemail'),
-            'byphone': request.POST.get('byphone'),
-        }
-
-        body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
-
-        endpoint = 'https://api.mailgun.net/v3/{0}/messages'.format(self.DOMAIN)
-        response = requests.post(
-            endpoint, auth=('api', self.KEY), data={
-                'from': '{0} <postmaster@{1}>'.format(self.FROM_TEXT, self.DOMAIN),
-                'to': self.RECIPIENT,
-                'subject': self.SUBJECT,
-                'html': body
-            })
-
-        if response.status_code != 200:
-            value = '0'
-        else:
-            value = '1'
-
-        return HttpResponse(value)
-
-
-class NeopraxisContactFree(MailgunGenericContactView):
-    KEY = settings.MAILGUN_API_KEY
-    DOMAIN = settings.NEOPRAXIS
-    RECIPIENT = settings.NEOPRAXIS_RECIPIENT
-    EMAIL_TEMPLATE = 'email/neopraxis_contact_free.html'
-    FROM_TEXT = 'Neopraxis'
-    SUBJECT = 'Nuevo contacto desde neopraxis.mx'
-
-    @method_decorator(csrf_exempt)
-    def dispatch(self, request, *args, **kwargs):
-        return super(NeopraxisContactFree, self) \
-            .dispatch(request, *args, **kwargs)
-
-    def post(self, request):
-        ctx = {
-            'name': request.POST.get('name'),
-            'email': request.POST.get('email'),
-            'phone': request.POST.get('phone'),
-            'message': request.POST.get('message'),
-            'byemail': request.POST.get('byemail'),
-            'byphone': request.POST.get('byphone'),
-        }
-
-        body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
-
-        endpoint = 'https://api.mailgun.net/v3/{0}/messages'.format(self.DOMAIN)
-        response = requests.post(
-            endpoint, auth=('api', self.KEY), data={
-                'from': '{0} <postmaster@{1}>'.format(self.FROM_TEXT, self.DOMAIN),
-                'to': self.RECIPIENT,
-                'subject': self.SUBJECT,
-                'html': body
-            })
-
-        if response.status_code != 200:
-            value = '0'
-        else:
-            value = '1'
-
-        return HttpResponse(value)
+    FROM_TEXT = 'Aguaviento'
+    SUBJECT = 'Nuevo contacto desde página web:Aguaviento'
