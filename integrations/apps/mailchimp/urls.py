@@ -23,8 +23,8 @@ urlpatterns = [
         view=views.FloreliaNewsletterView.as_view(),
         name='florelia_newsletter'),
 
-    url(regex='^neopraxis/newsletter/$',
-        view=views.NeopraxisNewsletterView.as_view(),
-        name='neopraxis_newsletter'),
+#    url(regex='^neopraxis/newsletter/$',
+#        view=views.NeopraxisNewsletterView.as_view(),
+#        name='neopraxis_newsletter'),
 
 ]
