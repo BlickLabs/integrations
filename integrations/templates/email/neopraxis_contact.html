@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Neopraxis Contacto</title>
+</head>
+<body>
+  <p>
+    Nombre: {{ name }}
+  </p>
+  <p>
+    Correo electónico: {{ email }}
+  </p>
+  <p>
+    Teléfono: {{ phone }}
+  </p>
+  <p>
+    Mensaje: {{ message }}
+  </p>
+  {% if byemail %}
+    <p>
+      Contactar por correo: {{ byemail }}
+    </p>
+  {% endif %}
+  {% if byphone %}
+    <p>
+      Contactar por telefono: {{ byphone }}
+    </p>
+  {% endif %}
+</body>
+</html>

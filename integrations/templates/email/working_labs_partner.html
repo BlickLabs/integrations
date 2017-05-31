@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Partnership Contact</title>
+</head>
+<body>
+    <p>
+      Nombre: {{ name }} {{ last_name }}
+    </p>
+    <p>
+      Correo electónico: {{ email }}
+    </p>
+  {% if phone %}
+    <p>
+      Teléfono: {{ phone }}
+    </p>
+  {% endif %}
+    <p>
+      Nombre del cliente: {{ client_name }}
+    </p>
+    <p>
+      Correo electónico del cliente: {{ client_email }}
+    </p>
+  {% if client_phone %}
+    <p>
+      Teléfono del clinete: {{ client_phone }}
+    </p>
+  {% endif %}
+  <p>
+    Empresa del cliente: {{ client_company }}
+  </p>
+</body>
+</html>
