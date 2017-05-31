@@ -137,6 +137,6 @@ class AguavientoContact(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.AGUAVIENTO_DOMAIN
     RECIPIENT = settings.AGUAVIENTO_RECIPIENT
-    EMAIL_TEMPLATE = 'email/neopraxis_contact.html'
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'Aguaviento'
     SUBJECT = 'Nuevo contacto desde página web:Aguaviento'
