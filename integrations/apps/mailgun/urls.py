@@ -35,4 +35,8 @@ urlpatterns = [
         view=views.AguavientoContact.as_view(),
         name='aguaviento_contact'),
 
+    url(regex='^rgv/email/$',
+        view=views.RGVContact.as_view(),
+        name='rgv_contact'),
+
 ]

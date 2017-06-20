@@ -140,3 +140,53 @@ class AguavientoContact(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'Aguaviento'
     SUBJECT = 'Nuevo contacto desde página web:Aguaviento'
+
+
+class RGVContact(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.RGV_DOMAIN
+    RECIPIENT = settings.RGV_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'RGV'
+    SUBJECT = 'Nuevo contacto desde página web:RGV'
+
+
+class RGVOportunitiesView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.RGV_DOMAIN
+    RECIPIENT = settings.RGV_RECIPIENT
+    EMAIL_TEMPLATE = 'email/RGV_oportunities.html'
+    FROM_TEXT = 'RGV'
+    SUBJECT = 'Nuevo contacto desde Oportunidades'
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super(RGVOportunitiesView, self) \
+            .dispatch(request, *args, **kwargs)
+
+    def post(self, request):
+        ctx = {
+            'name': request.POST.get('name'),
+            'email': request.POST.get('email'),
+            'phone': request.POST.get('phone'),
+            'birthday': request.POST.get('birthday'),
+            'title': request.POST.get('title')
+        }
+
+        body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
+
+        endpoint = 'https://api.mailgun.net/v3/{0}/messages'.format(self.DOMAIN)
+        response = requests.post(
+            endpoint, auth=('api', self.KEY), data={
+                'from': '{0} <postmaster@{1}>'.format(self.FROM_TEXT, self.DOMAIN),
+                'to': self.RECIPIENT,
+                'subject': self.SUBJECT,
+                'html': body
+            })
+
+        if response.status_code != 200:
+            value = '0'
+        else:
+            value = '1'
+
+        return HttpResponse(value)
