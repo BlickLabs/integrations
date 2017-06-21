@@ -161,7 +161,7 @@ class RGVOpportunitiesView(MailgunGenericContactView):
 
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
-        return super(RGVOportunitiesView, self) \
+        return super(RGVOpportunitiesView, self) \
             .dispatch(request, *args, **kwargs)
 
     def post(self, request):
