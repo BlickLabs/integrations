@@ -151,11 +151,11 @@ class RGVContact(MailgunGenericContactView):
     SUBJECT = 'Nuevo contacto desde página web:RGV'
 
 
-class RGVOportunitiesView(MailgunGenericContactView):
+class RGVOpportunitiesView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.RGV_DOMAIN
     RECIPIENT = settings.RGV_RECIPIENT
-    EMAIL_TEMPLATE = 'email/RGV_oportunities.html'
+    EMAIL_TEMPLATE = 'email/RGV_opportunities.html'
     FROM_TEXT = 'RGV'
     SUBJECT = 'Nuevo contacto desde Oportunidades'
 
