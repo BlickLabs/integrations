@@ -39,7 +39,7 @@ urlpatterns = [
         view=views.RGVContact.as_view(),
         name='rgv_contact'),
 
-    url(regex='^rgv/opportunities$',
+    url(regex='^rgv/opportunities/$',
         view=views.RGVOpportunitiesView.as_view(),
         name='rgv_contact_opportunities'),
 ]
