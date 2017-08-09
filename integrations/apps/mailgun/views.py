@@ -145,7 +145,7 @@ class AguavientoContact(MailgunGenericContactView):
 class RGVContact(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.RGV_DOMAIN
-    RECIPIENT = settings.RGV_RECIPIENT
+    RECIPIENT = settings.RGV_RECIPIENT_CONTACT
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'RGV'
     SUBJECT = 'Nuevo contacto desde página web:RGV'
