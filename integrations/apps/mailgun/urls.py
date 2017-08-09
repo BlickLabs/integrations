@@ -15,6 +15,10 @@ urlpatterns = [
         view=views.RERContactView.as_view(),
         name='rer_email'),
 
+    url(regex='^higia/email/$',
+        view=views.HigiaContactView.as_view(),
+        name='higia_email'),
+
     url(regex='^rochalandero/email/$',
         view=views.RochaLanderoContactView.as_view(),
         name='rochalandero_email'),
