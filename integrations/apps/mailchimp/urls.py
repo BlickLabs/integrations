@@ -19,6 +19,10 @@ urlpatterns = [
         view=views.RochaLanderoNewsletterView.as_view(),
         name='rochalandero_newsletter'),
 
+    url(regex='^higia/newsletter/$',
+        view=views.HigiaNewsletterView.as_view(),
+        name='higia_newsletter'),
+
     url(regex='^florelia/newsletter/$',
         view=views.FloreliaNewsletterView.as_view(),
         name='florelia_newsletter'),

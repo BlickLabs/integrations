@@ -27,6 +27,14 @@ class RERContactView(MailgunGenericContactView):
     FROM_TEXT = 'RER Energy Group'
     SUBJECT = 'Nuevo contacto desde pagina web'
 
+class HigiaContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.HIGIA_MAILGUN_DOMAIN
+    RECIPIENT = settings.HIGIA_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'Higia'
+    SUBJECT = 'Nuevo contacto desde pagina web'
+
 class RochaLanderoContactView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.ROCHA_LANDERO_MAILGUN_DOMAIN

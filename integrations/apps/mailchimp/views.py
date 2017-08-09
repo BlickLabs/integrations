@@ -16,6 +16,11 @@ class WorkingLabsNewsletterView(MailchimpGenericNewsletterView):
     LIST_ID = settings.WORKING_LABS_MAILCHIMP_LIST_ID
     SHARD = settings.WORKING_LABS_MAILCHIMP_SHARD
 
+class HigiaNewsletterView(MailchimpGenericNewsletterView):
+    KEY = settings.HIGIA_MAILCHIMP_API_KEY
+    LIST_ID = settings.HIGIA_MAILCHIMP_LIST_ID
+    SHARD = settings.HIGIA_MAILCHIMP_SHARD
+
 #class NeopraxisNewsletterView(MailchimpGenericNewsletterView):
 #    KEY = settings.NEOPRAXIS_MAILCHIMP_API_KEY
 #    LIST_ID = settings.NEOPRAXIS_MAILCHIMP_LIST_ID
