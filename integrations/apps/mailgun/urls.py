@@ -11,10 +11,6 @@ urlpatterns = [
         view=views.FinaceroContactView.as_view(),
         name='finacero_email'),
 
-    url(regex='^rer/email/$',
-        view=views.RERContactView.as_view(),
-        name='rer_email'),
-
     url(regex='^higia/email/$',
         view=views.HigiaContactView.as_view(),
         name='higia_email'),
@@ -50,4 +46,8 @@ urlpatterns = [
     url(regex='^rgv/opportunities/$',
         view=views.RGVOpportunitiesView.as_view(),
         name='rgv_contact_opportunities'),
+
+    url(regex='^rer/email/$',
+        view=views.RERContactView.as_view(),
+        name='rer_email'),
 ]
