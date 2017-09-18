@@ -50,4 +50,8 @@ urlpatterns = [
     url(regex='^rer/email/$',
         view=views.RERContactView.as_view(),
         name='rer_email'),
+
+    url(regex='^rer/contact/$',
+        view=views.RERContactWithCompanyView.as_view(),
+        name='rer_contact')
 ]
