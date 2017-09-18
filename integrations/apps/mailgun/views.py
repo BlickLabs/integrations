@@ -19,14 +19,6 @@ class FinaceroContactView(MailgunGenericContactView):
     FROM_TEXT = 'Finacero'
     SUBJECT = 'Nuevo contacto desde pagina web'
 
-class RERContactView(MailgunGenericContactView):
-    KEY = settings.MAILGUN_API_KEY
-    DOMAIN = settings.RER_MAILGUN_DOMAIN
-    RECIPIENT = settings.RER_MAILGUN_RECIPIENT
-    EMAIL_TEMPLATE = 'email/generic_contact.html'
-    FROM_TEXT = 'RER Energy Group'
-    SUBJECT = 'Nuevo contacto desde pagina web'
-
 class HigiaContactView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.HIGIA_MAILGUN_DOMAIN
@@ -205,3 +197,12 @@ class RGVOpportunitiesView(MailgunGenericContactView):
             value = '1'
 
         return HttpResponse(value)
+
+
+class RERContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.RER_MAILGUN_DOMAIN
+    RECIPIENT = settings.RER_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'RER Energy Group'
+    SUBJECT = 'Nuevo contacto desde pagina web'
