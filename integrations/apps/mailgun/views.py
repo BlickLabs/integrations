@@ -208,12 +208,12 @@ class RERContactView(MailgunGenericContactView):
     SUBJECT = 'Nuevo contacto desde pagina web'
 
 
-class GetMoreContactView(MailgunGenericContactView):
+class MoreContactView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.GETMORE_MAILGUN_DOMAIN
     RECIPIENT = settings.GETMORE_MAILGUN_RECIPIENT
     EMAIL_TEMPLATE = 'email/generic_contact.html'
-    FROM_TEXT = 'getmore.mx'
+    FROM_TEXT = 'More Co'
     SUBJECT = 'Nuevo contacto'
 
 
