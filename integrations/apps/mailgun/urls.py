@@ -55,7 +55,7 @@ urlpatterns = [
         view=views.RERContactWithCompanyView.as_view(),
         name='rer_contact'),
 
-    url(regex='^getmore/contact/$',
+    url(regex='^more/contact/$',
         view=views.MoreContactView.as_view(),
         name='more_contact')
 ]
