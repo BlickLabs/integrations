@@ -207,25 +207,23 @@ class RERContactView(MailgunGenericContactView):
     FROM_TEXT = 'RER Energy Group'
     SUBJECT = 'Nuevo contacto desde pagina web'
 
-class RERContactWithCompanyView(MailgunGenericContactView):
+class GetMoreContactView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
-    DOMAIN = settings.RER_MAILGUN_DOMAIN
-    RECIPIENT = settings.RER_MAILGUN_RECIPIENT
-    EMAIL_TEMPLATE = 'email/rer_contact.html'
-    FROM_TEXT = 'RER Energy Group'
-    SUBJECT = 'Nuevo contacto desde página web'
+    DOMAIN = settings.GETMORE_MAILGUN_DOMAIN
+    RECIPIENT = settings.GETMORE_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/getmore_contact.html'
+    FROM_TEXT = 'getmore.mx'
+    SUBJECT = 'Nuevo contacto'
 
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
-        return super(RERContactWithCompanyView, self) \
+        return super(GetMoreContactView, self) \
             .dispatch(request, *args, **kwargs)
 
     def post(self, request):
         ctx = {
             'name': request.POST.get('name'),
-            'lastName': request.POST.get('lastName'),
             'email': request.POST.get('email'),
-            'company': request.POST.get('company'),
             'message': request.POST.get('message')
         }
 
