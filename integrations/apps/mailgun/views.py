@@ -213,8 +213,8 @@ class MoreContactView(MailgunGenericContactView):
     DOMAIN = settings.GETMORE_MAILGUN_DOMAIN
     RECIPIENT = settings.GETMORE_MAILGUN_RECIPIENT
     EMAIL_TEMPLATE = 'email/generic_contact.html'
-    FROM_TEXT = 'Aguaviento'
-    SUBJECT = 'Nuevo contacto desde página web:Aguaviento'
+    FROM_TEXT = 'More'
+    SUBJECT = 'Nuevo contacto desde página web:More'
 
 
 class RERContactWithCompanyView(MailgunGenericContactView):
