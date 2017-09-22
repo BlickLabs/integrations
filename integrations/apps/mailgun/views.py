@@ -207,7 +207,6 @@ class RERContactView(MailgunGenericContactView):
     FROM_TEXT = 'RER Energy Group'
     SUBJECT = 'Nuevo contacto desde pagina web'
 
-
 class GetMoreContactView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.GETMORE_MAILGUN_DOMAIN
@@ -225,7 +224,7 @@ class GetMoreContactView(MailgunGenericContactView):
         ctx = {
             'name': request.POST.get('name'),
             'email': request.POST.get('email'),
-            'message': request.POST.get('message'),
+            'message': request.POST.get('message')
         }
 
         body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
