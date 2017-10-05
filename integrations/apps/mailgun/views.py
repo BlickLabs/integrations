@@ -378,5 +378,4 @@ class GetMoreQuoteView(MailgunGenericContactView):
             value = '0'
         else:
             value = '1'
-
         return HttpResponse(value)
