@@ -223,11 +223,11 @@ class GetMoreCareers1View(MailgunGenericContactView):
 
     def post(self, request):
         ctx = {
-            'nameCareers': request.POST.get('name'),
-            'emailCareers': request.POST.get('email'),
-            'phoneCareers': request.POST.get('phone'),
-            'openingCareers': request.POST.get('birthday'),
-            'linkedinCareers': request.POST.get('title')
+            'nameCareers': request.POST.get('nameCareers'),
+            'emailCareers': request.POST.get('emailCareers'),
+            'phoneCareers': request.POST.get('phoneCareers'),
+            'openingCareers': request.POST.get('openingCareers'),
+            'linkedinCareers': request.POST.get('linkedinCareers')
         }
 
         body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
