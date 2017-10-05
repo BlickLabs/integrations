@@ -206,8 +206,8 @@ class RERContactView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'RER Energy Group'
     SUBJECT = 'Nuevo contacto desde pagina web'
-
-
+    
+    
 class MoreContactView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.MORE_MAILGUN_DOMAIN
@@ -217,26 +217,150 @@ class MoreContactView(MailgunGenericContactView):
     SUBJECT = 'Nuevo contacto desde página web:More'
 
 
-class RERContactWithCompanyView(MailgunGenericContactView):
+class GetMoreCareers1View(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
-    DOMAIN = settings.RER_MAILGUN_DOMAIN
-    RECIPIENT = settings.RER_MAILGUN_RECIPIENT
-    EMAIL_TEMPLATE = 'email/rer_contact.html'
-    FROM_TEXT = 'RER Energy Group'
-    SUBJECT = 'Nuevo contacto desde página web'
+    DOMAIN = settings.MORE_MAILGUN_DOMAIN
+    RECIPIENT = settings.MORE_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/More_careers1.html'
+    FROM_TEXT = 'More'
+    SUBJECT = 'Nuevo contacto desde página web:Careers'
 
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
-        return super(RERContactWithCompanyView, self) \
+        return super(GetMoreCareers1View, self) \
             .dispatch(request, *args, **kwargs)
 
     def post(self, request):
         ctx = {
-            'name': request.POST.get('name'),
-            'lastName': request.POST.get('lastName'),
-            'email': request.POST.get('email'),
-            'company': request.POST.get('company'),
-            'message': request.POST.get('message')
+            'nameCareers': request.POST.get('nameCareers'),
+            'emailCareers': request.POST.get('emailCareers'),
+            'phoneCareers': request.POST.get('phoneCareers'),
+            'openingCareers': request.POST.get('openingCareers'),
+            'linkedinCareers': request.POST.get('linkedinCareers')
+        }
+
+        body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
+
+        endpoint = 'https://api.mailgun.net/v3/{0}/messages'.format(self.DOMAIN)
+        response = requests.post(
+            endpoint, auth=('api', self.KEY), data={
+                'from': '{0} <postmaster@{1}>'.format(self.FROM_TEXT, self.DOMAIN),
+                'to': self.RECIPIENT,
+                'subject': self.SUBJECT,
+                'html': body
+            })
+
+        if response.status_code != 200:
+            value = '0'
+        else:
+            value = '1'
+
+        return HttpResponse(value)
+
+
+class GetMoreCareers2View(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.MORE_MAILGUN_DOMAIN
+    RECIPIENT = settings.MORE_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/More_careers2.html'
+    FROM_TEXT = 'More'
+    SUBJECT = 'Nuevo contacto desde página web:Careers'
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super(GetMoreCareers2View, self) \
+            .dispatch(request, *args, **kwargs)
+
+    def post(self, request):
+        ctx = {
+            'LiCareers': request.POST.get('LiCareers'),
+            'portfolioCareers': request.POST.get('portfolioCareers'),
+            'githubCareers': request.POST.get('githubCareers'),
+            'urlCareers': request.POST.get('urlCareers'),
+            'whyMoreCareers': request.POST.get('whyMoreCareers')
+        }
+
+        body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
+
+        endpoint = 'https://api.mailgun.net/v3/{0}/messages'.format(self.DOMAIN)
+        response = requests.post(
+            endpoint, auth=('api', self.KEY), data={
+                'from': '{0} <postmaster@{1}>'.format(self.FROM_TEXT, self.DOMAIN),
+                'to': self.RECIPIENT,
+                'subject': self.SUBJECT,
+                'html': body
+            })
+
+        if response.status_code != 200:
+            value = '0'
+        else:
+            value = '1'
+
+        return HttpResponse(value)
+
+
+class GetMoreReferralsView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.MORE_MAILGUN_DOMAIN
+    RECIPIENT = settings.MORE_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/More_referrals.html'
+    FROM_TEXT = 'More'
+    SUBJECT = 'Nuevo contacto desde página web:Referrals'
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super(GetMoreReferralsView, self) \
+            .dispatch(request, *args, **kwargs)
+
+    def post(self, request):
+        ctx = {
+            'nameReferrals': request.POST.get('nameReferrals'),
+            'mailReferrals': request.POST.get('mailReferrals'),
+            'phoneReferrals': request.POST.get('phoneReferrals'),
+            'messageReferrals': request.POST.get('messageReferrals')
+        }
+
+        body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
+
+        endpoint = 'https://api.mailgun.net/v3/{0}/messages'.format(self.DOMAIN)
+        response = requests.post(
+            endpoint, auth=('api', self.KEY), data={
+                'from': '{0} <postmaster@{1}>'.format(self.FROM_TEXT, self.DOMAIN),
+                'to': self.RECIPIENT,
+                'subject': self.SUBJECT,
+                'html': body
+            })
+
+        if response.status_code != 200:
+            value = '0'
+        else:
+            value = '1'
+
+        return HttpResponse(value)
+
+
+class GetMoreQuoteView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.MORE_MAILGUN_DOMAIN
+    RECIPIENT = settings.MORE_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/More_quote.html'
+    FROM_TEXT = 'More'
+    SUBJECT = 'Nuevo contacto desde página web:Quote'
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super(GetMoreQuoteView, self) \
+            .dispatch(request, *args, **kwargs)
+
+    def post(self, request):
+        ctx = {
+            'nameQuote': request.POST.get('nameQuote'),
+            'phoneQuote': request.POST.get('phoneQuote'),
+            'projectTypeQuote': request.POST.get('projectTypeQuote'),
+            'emailQuote': request.POST.get('emailQuote'),
+            'projectNameQuote': request.POST.get('projectNameQuote'),
+            'budgetQuote': request.POST.get('budgetQuote'),
+            'detailsQuote': request.POST.get('detailsQuote')
         }
 
         body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)

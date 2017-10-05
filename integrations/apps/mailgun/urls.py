@@ -51,11 +51,22 @@ urlpatterns = [
         view=views.RERContactView.as_view(),
         name='rer_email'),
 
-    url(regex='^rer/contact/$',
-        view=views.RERContactWithCompanyView.as_view(),
-        name='rer_contact'),
+    url(regex='^getmore/contact/$',
+        view=views.GetMoreContactView.as_view(),
+        name='getmore_contact'),
 
-    url(regex='^more/contact/$',
-        view=views.MoreContactView.as_view(),
-        name='more_contact')
-]
+    url(regex='^getmore/contact/careers1/$',
+        view=views.GetMoreCareers1View.as_view(),
+        name='getmore_careers1'),
+
+    url(regex='^getmore/contact/careers2/$',
+        view=views.GetMoreCareers2View.as_view(),
+        name='getmore_careers2'),
+
+    url(regex='^getmore/contact/referrals/$',
+        view=views.GetMoreReferralsView.as_view(),
+        name='getmore_referrals'),
+
+    url(regex='^getmore/contact/quote/$',
+        view=views.GetMoreQuoteView.as_view(),
+        name='getmore_quote')
