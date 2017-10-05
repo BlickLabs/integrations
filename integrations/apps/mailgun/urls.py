@@ -61,9 +61,13 @@ urlpatterns = [
 
     url(regex='^getmore/contact/careers2/$',
         view=views.GetMoreCareers2View.as_view(),
-        name='getmore_careers2')
+        name='getmore_careers2'),
 
     url(regex='^getmore/contact/referrals/$',
         view=views.GetMoreReferralsView.as_view(),
-        name='getmore_referrals')
+        name='getmore_referrals'),
+
+    url(regex='^getmore/contact/quote/$',
+        view=views.GetMoreQuoteView.as_view(),
+        name='getmore_quote')
 ]

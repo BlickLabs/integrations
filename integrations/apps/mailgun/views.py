@@ -328,3 +328,46 @@ class GetMoreReferralsView(MailgunGenericContactView):
             value = '1'
 
         return HttpResponse(value)
+
+
+class GetMoreQuoteView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.MORE_MAILGUN_DOMAIN
+    RECIPIENT = settings.MORE_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/More_quote.html'
+    FROM_TEXT = 'More'
+    SUBJECT = 'Nuevo contacto desde página web:Quote'
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super(GetMoreQuoteView, self) \
+            .dispatch(request, *args, **kwargs)
+
+    def post(self, request):
+        ctx = {
+            'nameQuote': request.POST.get('nameQuote'),
+            'phoneQuote': request.POST.get('phoneQuote'),
+            'projectTypeQuote': request.POST.get('projectTypeQuote'),
+            'emailQuote': request.POST.get('emailQuote'),
+            'projectNameQuote': request.POST.get('projectNameQuote'),
+            'budgetQuote': request.POST.get('budgetQuote'),
+            'detailsQuote': request.POST.get('detailsQuote')
+        }
+
+        body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
+
+        endpoint = 'https://api.mailgun.net/v3/{0}/messages'.format(self.DOMAIN)
+        response = requests.post(
+            endpoint, auth=('api', self.KEY), data={
+                'from': '{0} <postmaster@{1}>'.format(self.FROM_TEXT, self.DOMAIN),
+                'to': self.RECIPIENT,
+                'subject': self.SUBJECT,
+                'html': body
+            })
+
+        if response.status_code != 200:
+            value = '0'
+        else:
+            value = '1'
+
+        return HttpResponse(value)
