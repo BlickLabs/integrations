@@ -247,3 +247,44 @@ class GetMoreCareers1View(MailgunGenericContactView):
             value = '1'
 
         return HttpResponse(value)
+
+
+class GetMoreCareers2View(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.MORE_MAILGUN_DOMAIN
+    RECIPIENT = settings.MORE_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/More_careers2.html'
+    FROM_TEXT = 'More'
+    SUBJECT = 'Nuevo contacto desde página web:Careers'
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super(GetMoreCareers2View, self) \
+            .dispatch(request, *args, **kwargs)
+
+    def post(self, request):
+        ctx = {
+            'LiCareers': request.POST.get('LiCareers'),
+            'portfolioCareers': request.POST.get('portfolioCareers'),
+            'githubCareers': request.POST.get('githubCareers'),
+            'urlCareers': request.POST.get('urlCareers'),
+            'whyMoreCareers': request.POST.get('whyMoreCareers')
+        }
+
+        body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
+
+        endpoint = 'https://api.mailgun.net/v3/{0}/messages'.format(self.DOMAIN)
+        response = requests.post(
+            endpoint, auth=('api', self.KEY), data={
+                'from': '{0} <postmaster@{1}>'.format(self.FROM_TEXT, self.DOMAIN),
+                'to': self.RECIPIENT,
+                'subject': self.SUBJECT,
+                'html': body
+            })
+
+        if response.status_code != 200:
+            value = '0'
+        else:
+            value = '1'
+
+        return HttpResponse(value)
