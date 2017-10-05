@@ -206,6 +206,15 @@ class RERContactView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'RER Energy Group'
     SUBJECT = 'Nuevo contacto desde pagina web'
+    
+    
+class MoreContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.MORE_MAILGUN_DOMAIN
+    RECIPIENT = settings.MORE_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'More'
+    SUBJECT = 'Nuevo contacto desde página web:More'
 
 
 class GetMoreCareers1View(MailgunGenericContactView):
@@ -308,7 +317,7 @@ class GetMoreReferralsView(MailgunGenericContactView):
             'nameReferrals': request.POST.get('nameReferrals'),
             'mailReferrals': request.POST.get('mailReferrals'),
             'phoneReferrals': request.POST.get('phoneReferrals'),
-            'messageReferrals': request.POST.get('messageReferrals'),
+            'messageReferrals': request.POST.get('messageReferrals')
         }
 
         body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)

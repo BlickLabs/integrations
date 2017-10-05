@@ -70,4 +70,3 @@ urlpatterns = [
     url(regex='^getmore/contact/quote/$',
         view=views.GetMoreQuoteView.as_view(),
         name='getmore_quote')
-]
