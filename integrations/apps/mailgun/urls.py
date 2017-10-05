@@ -53,5 +53,9 @@ urlpatterns = [
 
     url(regex='^getmore/contact/$',
         view=views.GetMoreContactView.as_view(),
-        name='getmore_contact')
+        name='getmore_contact'),
+
+    url(regex='^getmore/contact/careers1/$',
+        view=views.GetMoreCareers1View.as_view(),
+        name='getmore_careers1')
 ]
