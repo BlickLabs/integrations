@@ -206,6 +206,14 @@ class RERContactView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'RER Energy Group'
     SUBJECT = 'Nuevo contacto desde pagina web'
+
+class RERHomepageView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.RER_MAILGUN_DOMAIN
+    RECIPIENT = settings.RER_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'RER Energy Group'
+    SUBJECT = 'Nuevo contacto desde pagina web'
     
     
 class MoreContactView(MailgunGenericContactView):
