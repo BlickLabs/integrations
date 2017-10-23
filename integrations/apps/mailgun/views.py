@@ -203,17 +203,79 @@ class RERContactView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.RER_MAILGUN_DOMAIN
     RECIPIENT = settings.RER_MAILGUN_RECIPIENT
-    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    EMAIL_TEMPLATE = 'email/RER_contact.html'
     FROM_TEXT = 'RER Energy Group'
     SUBJECT = 'Nuevo contacto desde pagina web'
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super(RERContactView, self) \
+            .dispatch(request, *args, **kwargs)
+
+    def post(self, request):
+        ctx = {
+            'contactname': request.POST.get('contactname'),
+            'contactlastname': request.POST.get('contactlastname'),
+            'contactemail': request.POST.get('contactemail'),
+            'contactcompany': request.POST.get('contactcompany'),
+            'contactmessage': request.POST.get('contactmessage')
+        }
+
+        body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
+
+        endpoint = 'https://api.mailgun.net/v3/{0}/messages'.format(self.DOMAIN)
+        response = requests.post(
+            endpoint, auth=('api', self.KEY), data={
+                'from': '{0} <postmaster@{1}>'.format(self.FROM_TEXT, self.DOMAIN),
+                'to': self.RECIPIENT,
+                'subject': self.SUBJECT,
+                'html': body
+            })
+
+        if response.status_code != 200:
+            value = '0'
+        else:
+            value = '1'
+
+        return HttpResponse(value)
 
 class RERHomepageView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.RER_MAILGUN_DOMAIN
     RECIPIENT = settings.RER_MAILGUN_RECIPIENT
-    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    EMAIL_TEMPLATE = 'email/RER_homepage.html'
     FROM_TEXT = 'RER Energy Group'
     SUBJECT = 'Nuevo contacto desde pagina web'
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super(RERContactView, self) \
+            .dispatch(request, *args, **kwargs)
+
+    def post(self, request):
+        ctx = {
+            'candidatename': request.POST.get('candidatename'),
+            'candidateemail': request.POST.get('candidateemail'),
+            'candidatemessage': request.POST.get('candidatemessage')
+        }
+
+        body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
+
+        endpoint = 'https://api.mailgun.net/v3/{0}/messages'.format(self.DOMAIN)
+        response = requests.post(
+            endpoint, auth=('api', self.KEY), data={
+                'from': '{0} <postmaster@{1}>'.format(self.FROM_TEXT, self.DOMAIN),
+                'to': self.RECIPIENT,
+                'subject': self.SUBJECT,
+                'html': body
+            })
+
+        if response.status_code != 200:
+            value = '0'
+        else:
+            value = '1'
+
+        return HttpResponse(value)
     
     
 class MoreContactView(MailgunGenericContactView):

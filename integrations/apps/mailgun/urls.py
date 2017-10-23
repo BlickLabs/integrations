@@ -53,7 +53,7 @@ urlpatterns = [
 
     url(regex='^rer/email/homepage$',
         view=views.RERHomepageView.as_view(),
-        name='rer_email'),
+        name='rer_email_homepage'),
 
     url(regex='^more/contact/$',
         view=views.MoreContactView.as_view(),
