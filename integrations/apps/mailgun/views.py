@@ -249,7 +249,7 @@ class RERHomepageView(MailgunGenericContactView):
 
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
-        return super(RERContactView, self) \
+        return super(RERHomepageView, self) \
             .dispatch(request, *args, **kwargs)
 
     def post(self, request):
