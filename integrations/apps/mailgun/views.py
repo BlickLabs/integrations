@@ -448,42 +448,14 @@ class GetMoreQuoteView(MailgunGenericContactView):
             value = '0'
         else:
             value = '1'
+
         return HttpResponse(value)
 
 
 class IideaContacView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
-    DOMAIN = settings.MORE_MAILGUN_DOMAIN
+    DOMAIN = settings.IIDEA_MAILGUN_DOMAIN
     RECIPIENT = settings.IIDEA_MAILGUN_RECIPIENT
-    EMAIL_TEMPLATE = 'email/iidea_contact.html'
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'Iidea'
     SUBJECT = 'Nuevo contacto desde página web:Iidea'
-
-    @method_decorator(csrf_exempt)
-    def dispatch(self, request, *args, **kwargs):
-        return super(IideaContacView, self) \
-            .dispatch(request, *args, **kwargs)
-
-    def post(self, request):
-        ctx = {
-            'name': request.POST.get('name'),
-            'email': request.POST.get('email'),
-            'message': request.POST.get('message')
-        }
-
-        body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
-
-        endpoint = 'https://api.mailgun.net/v3/{0}/messages'.format(self.DOMAIN)
-        response = requests.post(
-            endpoint, auth=('api', self.KEY), data={
-                'from': '{0} <postmaster@{1}>'.format(self.FROM_TEXT, self.DOMAIN),
-                'to': self.RECIPIENT,
-                'subject': self.SUBJECT,
-                'html': body
-            })
-
-        if response.status_code != 200:
-            value = '0'
-        else:
-            value = '1'
-        return HttpResponse(value)
