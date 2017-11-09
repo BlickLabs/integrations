@@ -139,6 +139,45 @@ class WorkingLabsPartnershipView(MailgunGenericContactView):
 
         return HttpResponse(value)
 
+class WorkingLabsAppointmentView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.WORKING_LABS_MAILGUN_DOMAIN
+    RECIPIENT = settings.WORKING_LABS_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/working_labs_appointment.html'
+    FROM_TEXT = 'Working Labs'
+    SUBJECT = 'Nuevo agendación para cita'
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super(WorkingLabsAppointmentView, self) \
+            .dispatch(request, *args, **kwargs)
+
+    def post(self, request):
+        ctx = {
+            'completename': request.POST.get('completename'),
+            'telnumber': request.POST.get('telnumber'),
+            'peopleteam': request.POST.get('peopleteam'),
+            'date': request.POST.get('date'),
+            'time': request.POST.get('time'),
+        }
+
+        body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
+
+        endpoint = 'https://api.mailgun.net/v3/{0}/messages'.format(self.DOMAIN)
+        response = requests.post(
+            endpoint, auth=('api', self.KEY), data={
+                'from': '{0} <postmaster@{1}>'.format(self.FROM_TEXT, self.DOMAIN),
+                'to': self.RECIPIENT,
+                'subject': self.SUBJECT,
+                'html': body
+            })
+
+        if response.status_code != 200:
+            value = '0'
+        else:
+            value = '1'
+
+        return HttpResponse(value)
 
 class AguavientoContact(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
