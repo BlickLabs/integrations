@@ -35,6 +35,10 @@ urlpatterns = [
         view=views.WorkingLabsFreeDayView.as_view(),
         name='workinglabs_free'),
 
+    url(regex='^workinglabs/appointment/$',
+        view=views.WorkingLabsAppointmentView.as_view(),
+        name='workinglabs_appointment'),
+
     url(regex='^aguaviento/email/$',
         view=views.AguavientoContact.as_view(),
         name='aguaviento_contact'),
