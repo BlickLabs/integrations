@@ -18,5 +18,9 @@ urlpatterns = [
     url(regex='^workinglabs/email/$',
         view=views.WorkingLabsContactView.as_view(),
         name='workinglabs_email'),
+    
+    url(regex='^indots/email/$',
+        view=views.indotsContactView.as_view(),
+        name='indots_email'),
 
 ]
