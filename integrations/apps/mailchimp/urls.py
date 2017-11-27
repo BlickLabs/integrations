@@ -26,6 +26,10 @@ urlpatterns = [
     url(regex='^florelia/newsletter/$',
         view=views.FloreliaNewsletterView.as_view(),
         name='florelia_newsletter'),
+    
+    url(regex='^indots/newsletter/$',
+        view=views.IndotsNewsletterView.as_view(),
+        name='indots_newsletter'),
 
 #    url(regex='^neopraxis/newsletter/$',
 #        view=views.NeopraxisNewsletterView.as_view(),
