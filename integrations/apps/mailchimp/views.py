@@ -37,3 +37,8 @@ class FloreliaNewsletterView(MailchimpGenericNewsletterView):
     KEY = settings.FLORELIA_MAILCHIMP_API_KEY
     LIST_ID = settings.FLORELIA_MAILCHIMP_LIST_ID
     SHARD = settings.FLORELIA_MAILCHIMP_SHARD
+
+class IndotsNewsletterView(MailchimpGenericNewsletterView):
+    KEY = settings.INDOTS_MAILCHIMP_API_KEY
+    LIST_ID = settings.INDOTS_MAILCHIMP_LIST_ID
+    SHARD = settings.INDOTS_MAILCHIMP_SHARD
