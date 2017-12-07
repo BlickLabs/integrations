@@ -42,3 +42,8 @@ class IndotsNewsletterView(MailchimpGenericNewsletterView):
     KEY = settings.INDOTS_MAILCHIMP_API_KEY
     LIST_ID = settings.INDOTS_MAILCHIMP_LIST_ID
     SHARD = settings.INDOTS_MAILCHIMP_SHARD
+
+class CierraloNewsletterView(MailchimpGenericNewsletterView):
+    KEY = settings.CIERRALO_MAILCHIMP_API_KEY
+    LIST_ID = settings.CIERRALO_MAILCHIMP_LIST_ID
+    SHARD = settings.CIERRALO_MAILCHIMP_SHARD
