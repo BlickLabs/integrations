@@ -31,6 +31,10 @@ urlpatterns = [
         view=views.IndotsNewsletterView.as_view(),
         name='indots_newsletter'),
 
+    url(regex='^cierralo/newsletter/$',
+        view=views.CierraloNewsletterView.as_view(),
+        name='cierralo_newsletter'),
+
 #    url(regex='^neopraxis/newsletter/$',
 #        view=views.NeopraxisNewsletterView.as_view(),
 #        name='neopraxis_newsletter'),
