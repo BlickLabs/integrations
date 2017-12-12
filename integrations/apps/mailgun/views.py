@@ -498,3 +498,12 @@ class IideaContacView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'Iidea'
     SUBJECT = 'Nuevo contacto desde página web:Iidea'
+
+
+class AlianzaContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.ALIANZA_MAILGUN_DOMAIN
+    RECIPIENT = settings.ALIANZA_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'Alianza SweMex'
+    SUBJECT = 'Nuevo contacto desde página web'
