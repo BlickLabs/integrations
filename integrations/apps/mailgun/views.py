@@ -502,39 +502,8 @@ class IideaContacView(MailgunGenericContactView):
 
 class AlianzaContactView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
-    DOMAIN = settings.RER_MAILGUN_DOMAIN
-    RECIPIENT = settings.RER_MAILGUN_RECIPIENT
+    DOMAIN = settings.ALIANZA_MAILGUN_DOMAIN
+    RECIPIENT = settings.ALIANZA_MAILGUN_RECIPIENT
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'Alianza SweMex'
     SUBJECT = 'Nuevo contacto desde página web'
-
-    @method_decorator(csrf_exempt)
-    def dispatch(self, request, *args, **kwargs):
-        return super(AlianzaContactView, self) \
-            .dispatch(request, *args, **kwargs)
-
-    def post(self, request):
-        ctx = {
-            'name': request.POST.get('name'),
-            'phone': request.POST.get('phone'),
-            'email': request.POST.get('email'),
-            'message': request.POST.get('message')
-        }
-
-        body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
-
-        endpoint = 'https://api.mailgun.net/v3/{0}/messages'.format(self.DOMAIN)
-        response = requests.post(
-            endpoint, auth=('api', self.KEY), data={
-                'from': '{0} <postmaster@{1}>'.format(self.FROM_TEXT, self.DOMAIN),
-                'to': self.RECIPIENT,
-                'subject': self.SUBJECT,
-                'html': body
-            })
-
-        if response.status_code != 200:
-            value = '0'
-        else:
-            value = '1'
-
-        return HttpResponse(value)
