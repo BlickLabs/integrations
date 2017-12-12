@@ -504,7 +504,7 @@ class AlianzaContactView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.RER_MAILGUN_DOMAIN
     RECIPIENT = settings.RER_MAILGUN_RECIPIENT
-    EMAIL_TEMPLATE = 'email/alianza_contact.html'
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'Alianza SweMex'
     SUBJECT = 'Nuevo contacto desde página web'
 
@@ -515,10 +515,10 @@ class AlianzaContactView(MailgunGenericContactView):
 
     def post(self, request):
         ctx = {
-            'alianzacontactname': request.POST.get('alianzacontactname'),
-            'alianzacontactphone': request.POST.get('alianzacontactphone'),
-            'alianzacontactemail': request.POST.get('alianzacontactemail'),
-            'alianzacontactmessage': request.POST.get('alianzacontactmessage')
+            'name': request.POST.get('name'),
+            'phone': request.POST.get('phone'),
+            'email': request.POST.get('email'),
+            'message': request.POST.get('message')
         }
 
         body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
