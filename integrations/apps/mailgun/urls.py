@@ -81,5 +81,9 @@ urlpatterns = [
 
     url(regex='^more/contact/iidea/$',
         view=views.IideaContacView.as_view(),
-        name='iidea_contact')
+        name='iidea_contact'),
+
+    url(regex='^alianza/contact/$',
+        view=views.AlianzaContactView.as_view(),
+        name='alianza_contact'),
 ]
