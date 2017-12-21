@@ -47,3 +47,13 @@ class CierraloNewsletterView(MailchimpGenericNewsletterView):
     KEY = settings.CIERRALO_MAILCHIMP_API_KEY
     LIST_ID = settings.CIERRALO_MAILCHIMP_LIST_ID
     SHARD = settings.CIERRALO_MAILCHIMP_SHARD
+
+class IcanJoinViewEs(MailchimpGenericNewsletterView):
+    KEY = settings.ICAN_ES_MAILCHIMP_API_KEY
+    LIST_ID = settings.ICAN_ES_MAILCHIMP_LIST_ID
+    SHARD = settings.ICAN_ES_MAILCHIMP_SHARD
+
+class IcanJoinViewEn(MailchimpGenericNewsletterView):
+    KEY = settings.ICAN_EN_MAILCHIMP_API_KEY
+    LIST_ID = settings.ICAN_EN_MAILCHIMP_LIST_ID
+    SHARD = settings.ICAN_EN_MAILCHIMP_SHARD
