@@ -35,6 +35,14 @@ urlpatterns = [
         view=views.CierraloNewsletterView.as_view(),
         name='cierralo_newsletter'),
 
+    url(regex='^ican/join/es/$',
+        view=views.IcanJoinViewEs.as_view(),
+        name='ican_join_es'),
+
+    url(regex='^ican/join/en/$',
+        view=views.IcanJoinViewEn.as_view(),
+        name='ican_join_en'),
+
 #    url(regex='^neopraxis/newsletter/$',
 #        view=views.NeopraxisNewsletterView.as_view(),
 #        name='neopraxis_newsletter'),
