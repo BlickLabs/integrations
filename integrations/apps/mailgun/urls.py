@@ -86,4 +86,8 @@ urlpatterns = [
     url(regex='^alianza/contact/$',
         view=views.AlianzaContactView.as_view(),
         name='alianza_contact'),
+
+    url(regex='^dimsa/contact/$',
+        view=views.DimsaContactView.as_view(),
+        name='dimsa_contact'),
 ]
