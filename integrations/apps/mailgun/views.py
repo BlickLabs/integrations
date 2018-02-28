@@ -516,3 +516,12 @@ class DimsaContactView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'DIM - SA'
     SUBJECT = 'Nuevo contacto desde página web'
+
+
+class WicoreContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.WICORE_MAILGUN_DOMAIN
+    RECIPIENT = settings.WICORE_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'wiCore'
+    SUBJECT = 'Nuevo contacto desde página web'

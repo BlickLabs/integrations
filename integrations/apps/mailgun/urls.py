@@ -90,4 +90,8 @@ urlpatterns = [
     url(regex='^dimsa/contact/$',
         view=views.DimsaContactView.as_view(),
         name='dimsa_contact'),
+
+    url(regex='^wicore/contact/$',
+        view=views.WicoreContactView.as_view(),
+        name='wicore_contact'),
 ]
