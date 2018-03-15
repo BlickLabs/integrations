@@ -94,4 +94,8 @@ urlpatterns = [
     url(regex='^wicore/contact/$',
         view=views.WicoreContactView.as_view(),
         name='wicore_contact'),
+
+    url(regex='^neulift/contact/$',
+        view=views.NeuliftContactView.as_view(),
+        name='neulift'),
 ]
