@@ -525,3 +525,12 @@ class WicoreContactView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'wiCore'
     SUBJECT = 'Nuevo contacto desde página web'
+
+
+class NeuliftContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.NEULIFT_MAILGUN_DOMAIN
+    RECIPIENT = settings.NEULIFT_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'Neulift'
+    SUBJECT = 'Nuevo contacto desde www.neulift.com.mx'
