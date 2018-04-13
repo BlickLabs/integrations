@@ -98,4 +98,8 @@ urlpatterns = [
     url(regex='^neulift/contact/$',
         view=views.NeuliftContactView.as_view(),
         name='neulift'),
+
+    url(regex='^morelanding/contact/$',
+        view=views.MoreLandingContactView.as_view(),
+        name='morelanding'),
 ]

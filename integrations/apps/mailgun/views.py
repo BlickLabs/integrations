@@ -534,3 +534,12 @@ class NeuliftContactView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'Neulift'
     SUBJECT = 'Nuevo contacto desde www.neulift.com.mx'
+
+
+class MoreLandingContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.MORELANDING_MAILGUN_DOMAIN
+    RECIPIENT = settings.MORELANDING_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'More Co. | Shopify Experts'
+    SUBJECT = 'Nuevo mensaje desde www.shop.getmore.mx'
