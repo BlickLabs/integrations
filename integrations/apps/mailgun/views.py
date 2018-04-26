@@ -543,3 +543,12 @@ class MoreLandingContactView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'More Co. | Shopify Experts'
     SUBJECT = 'Nuevo mensaje desde www.shop.getmore.mx'
+
+
+class EntosContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.ENTOS_MAILGUN_DOMAIN
+    RECIPIENT = settings.ENTOS_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'Entos | Innovation Beyond Measure'
+    SUBJECT = 'New message from landing page.'
