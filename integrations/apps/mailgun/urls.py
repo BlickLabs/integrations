@@ -102,4 +102,8 @@ urlpatterns = [
     url(regex='^morelanding/contact/$',
         view=views.MoreLandingContactView.as_view(),
         name='morelanding'),
+
+    url(regex='^entos/contact/$',
+        view=views.EntosContactView.as_view(),
+        name='entos'),
 ]
