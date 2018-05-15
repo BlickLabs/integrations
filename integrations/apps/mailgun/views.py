@@ -315,8 +315,8 @@ class RERHomepageView(MailgunGenericContactView):
             value = '1'
 
         return HttpResponse(value)
-    
-    
+
+
 class MoreContactView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.MORE_MAILGUN_DOMAIN
@@ -552,3 +552,11 @@ class EntosContactView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'Entos | Innovation Beyond Measure'
     SUBJECT = 'New message from landing page.'
+
+class PromorContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.PROMOR_MAILGUN_DOMAIN
+    RECIPIENT = settings.PROMOR_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'Promor'
+    SUBJECT = 'Nuevo contacto desde pagina web'
