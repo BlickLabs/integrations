@@ -560,3 +560,11 @@ class PromorContactView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'Promor'
     SUBJECT = 'Nuevo contacto desde pagina web'
+
+class SicContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.SIC_MAILGUN_DOMAIN
+    RECIPIENT = settings.SIC_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'SIC | Comercialización y Servicios'
+    SUBJECT = 'Nuevo mensaje desde www.sic.com.mx.'
