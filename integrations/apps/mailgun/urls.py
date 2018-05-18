@@ -112,6 +112,6 @@ urlpatterns = [
         name='promor'),
 
     url(regex='^sic/contact/form/$',
-        view=views.EntosContactView.as_view(),
+        view=views.SicContactView.as_view(),
         name='sic_contact'),
 ]
