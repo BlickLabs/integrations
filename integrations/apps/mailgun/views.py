@@ -553,6 +553,7 @@ class EntosContactView(MailgunGenericContactView):
     FROM_TEXT = 'Entos | Innovation Beyond Measure'
     SUBJECT = 'New message from landing page.'
 
+
 class PromorContactView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.PROMOR_MAILGUN_DOMAIN
