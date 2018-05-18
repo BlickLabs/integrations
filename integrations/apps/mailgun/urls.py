@@ -110,4 +110,8 @@ urlpatterns = [
     url(regex='^promor/contact/$',
         view=views.PromorContactView.as_view(),
         name='promor'),
+
+    url(regex='^sic/contact/form/$',
+        view=views.EntosContactView.as_view(),
+        name='sic_contact'),
 ]
