@@ -584,3 +584,11 @@ class SicCLContactView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'SIC | Comercialización y Servicios'
     SUBJECT = 'Nuevo mensaje desde www.sic.chile.cl'
+
+class SicCLQuoteView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.SIC_CL_QUOTE_MAILGUN_DOMAIN
+    RECIPIENT = settings.SIC_CL_QUOTE_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'SIC | Comercialización y Servicios'
+    SUBJECT = 'Nuevo mensaje desde www.sic.chile.cl'
