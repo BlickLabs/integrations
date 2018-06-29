@@ -606,3 +606,12 @@ class SicCOContactView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'SIC | Comercialización y Servicios'
     SUBJECT = 'Nuevo mensaje desde www.sicco.com.co'
+
+
+class SicCOQuoteView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.SIC_CO_QUOTE_MAILGUN_DOMAIN
+    RECIPIENT = settings.SIC_CO_QUOTE_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'SIC | Comercialización y Servicios'
+    SUBJECT = 'Nuevo mensaje desde www.sicco.com.co'
