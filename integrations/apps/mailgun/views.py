@@ -553,6 +553,7 @@ class EntosContactView(MailgunGenericContactView):
     FROM_TEXT = 'Entos | Innovation Beyond Measure'
     SUBJECT = 'New message from landing page.'
 
+
 class PromorContactView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.PROMOR_MAILGUN_DOMAIN
@@ -560,6 +561,7 @@ class PromorContactView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'Promor'
     SUBJECT = 'Nuevo contacto desde pagina web'
+
 
 class SicContactView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
@@ -569,6 +571,7 @@ class SicContactView(MailgunGenericContactView):
     FROM_TEXT = 'SIC | Comercialización y Servicios'
     SUBJECT = 'Nuevo mensaje desde www.sic.com.mx.'
 
+
 class SicQuoteView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.SIC_QUOTE_MAILGUN_DOMAIN
@@ -576,6 +579,7 @@ class SicQuoteView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'SIC | Comercialización y Servicios'
     SUBJECT = 'Nuevo mensaje desde www.sic.com.mx.'
+
 
 class SicCLContactView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
@@ -585,6 +589,7 @@ class SicCLContactView(MailgunGenericContactView):
     FROM_TEXT = 'SIC | Comercialización y Servicios'
     SUBJECT = 'Nuevo mensaje desde www.sic.chile.cl'
 
+
 class SicCLQuoteView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.SIC_CL_QUOTE_MAILGUN_DOMAIN
@@ -592,3 +597,12 @@ class SicCLQuoteView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'SIC | Comercialización y Servicios'
     SUBJECT = 'Nuevo mensaje desde www.sic.chile.cl'
+
+
+class SicCOContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.SIC_CO_MAILGUN_DOMAIN
+    RECIPIENT = settings.SIC_CO_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'SIC | Comercialización y Servicios'
+    SUBJECT = 'Nuevo mensaje desde www.sicco.com.co'
