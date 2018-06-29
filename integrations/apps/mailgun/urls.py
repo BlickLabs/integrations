@@ -106,7 +106,7 @@ urlpatterns = [
     url(regex='^entos/contact/$',
         view=views.EntosContactView.as_view(),
         name='entos'),
-    
+
     url(regex='^promor/contact/$',
         view=views.PromorContactView.as_view(),
         name='promor'),
@@ -130,4 +130,8 @@ urlpatterns = [
     url(regex='^sic-co/contact/form/$',
         view=views.SicCOContactView.as_view(),
         name='sic_co_contact'),
+
+    url(regex='^sic-co/quote/form/$',
+        view=views.SicCOQuoteView.as_view(),
+        name='sic_co_quote'),
 ]
