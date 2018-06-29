@@ -624,3 +624,12 @@ class SicARGContactView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'SIC | Comercialización y Servicios'
     SUBJECT = 'Nuevo mensaje desde arg.sic-la.com'
+
+
+class SicARGQuoteView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.SIC_ARG_QUOTE_MAILGUN_DOMAIN
+    RECIPIENT = settings.SIC_ARG_QUOTE_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'SIC | Comercialización y Servicios'
+    SUBJECT = 'Nuevo mensaje desde arg.sic-la.com'
