@@ -138,4 +138,8 @@ urlpatterns = [
     url(regex='^sic-arg/contact/form/$',
         view=views.SicARGContactView.as_view(),
         name='sic_arg_contact'),
+
+    url(regex='^sic-arg/quote/form/$',
+        view=views.SicARGQuoteView.as_view(),
+        name='sic_arg_quote'),
 ]
