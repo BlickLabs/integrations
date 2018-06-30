@@ -562,13 +562,15 @@ class PromorContactView(MailgunGenericContactView):
     FROM_TEXT = 'Promor'
     SUBJECT = 'Nuevo contacto desde pagina web'
 
+
 class SicContactView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.SIC_MAILGUN_DOMAIN
     RECIPIENT = settings.SIC_MAILGUN_RECIPIENT
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'SIC | Comercialización y Servicios'
-    SUBJECT = 'Nuevo mensaje desde www.sic.com.mx.'
+    SUBJECT = 'Nuevo mensaje desde sic.com.mx.'
+
 
 class SicQuoteView(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
@@ -576,4 +578,58 @@ class SicQuoteView(MailgunGenericContactView):
     RECIPIENT = settings.SIC_QUOTE_MAILGUN_RECIPIENT
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'SIC | Comercialización y Servicios'
-    SUBJECT = 'Nuevo mensaje desde www.sic.com.mx.'
+    SUBJECT = 'Nuevo mensaje desde sic.com.mx.'
+
+
+class SicCLContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.SIC_CL_MAILGUN_DOMAIN
+    RECIPIENT = settings.SIC_CL_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'SIC | Comercialización y Servicios'
+    SUBJECT = 'Nuevo mensaje desde sic.chile.cl'
+
+
+class SicCLQuoteView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.SIC_CL_QUOTE_MAILGUN_DOMAIN
+    RECIPIENT = settings.SIC_CL_QUOTE_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'SIC | Comercialización y Servicios'
+    SUBJECT = 'Nuevo mensaje desde sic.chile.cl'
+
+
+class SicCOContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.SIC_CO_MAILGUN_DOMAIN
+    RECIPIENT = settings.SIC_CO_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'SIC | Comercialización y Servicios'
+    SUBJECT = 'Nuevo mensaje desde sicco.com.co'
+
+
+class SicCOQuoteView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.SIC_CO_QUOTE_MAILGUN_DOMAIN
+    RECIPIENT = settings.SIC_CO_QUOTE_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'SIC | Comercialización y Servicios'
+    SUBJECT = 'Nuevo mensaje desde sicco.com.co'
+
+
+class SicARGContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.SIC_ARG_MAILGUN_DOMAIN
+    RECIPIENT = settings.SIC_ARG_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'SIC | Comercialización y Servicios'
+    SUBJECT = 'Nuevo mensaje desde arg.sic-la.com'
+
+
+class SicARGQuoteView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.SIC_ARG_QUOTE_MAILGUN_DOMAIN
+    RECIPIENT = settings.SIC_ARG_QUOTE_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'SIC | Comercialización y Servicios'
+    SUBJECT = 'Nuevo mensaje desde arg.sic-la.com'

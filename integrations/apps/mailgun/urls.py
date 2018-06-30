@@ -106,7 +106,7 @@ urlpatterns = [
     url(regex='^entos/contact/$',
         view=views.EntosContactView.as_view(),
         name='entos'),
-    
+
     url(regex='^promor/contact/$',
         view=views.PromorContactView.as_view(),
         name='promor'),
@@ -118,4 +118,28 @@ urlpatterns = [
     url(regex='^sic/quote/form/$',
         view=views.SicQuoteView.as_view(),
         name='sic_quote'),
+
+    url(regex='^sic-cl/contact/form/$',
+        view=views.SicCLContactView.as_view(),
+        name='sic_cl_contact'),
+
+    url(regex='^sic-cl/quote/form/$',
+        view=views.SicCLQuoteView.as_view(),
+        name='sic_cl_quote'),
+
+    url(regex='^sic-co/contact/form/$',
+        view=views.SicCOContactView.as_view(),
+        name='sic_co_contact'),
+
+    url(regex='^sic-co/quote/form/$',
+        view=views.SicCOQuoteView.as_view(),
+        name='sic_co_quote'),
+
+    url(regex='^sic-arg/contact/form/$',
+        view=views.SicARGContactView.as_view(),
+        name='sic_arg_contact'),
+
+    url(regex='^sic-arg/quote/form/$',
+        view=views.SicARGQuoteView.as_view(),
+        name='sic_arg_quote'),
 ]
