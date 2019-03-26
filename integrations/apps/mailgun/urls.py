@@ -151,7 +151,7 @@ urlpatterns = [
         view=views.RiversLegalCareerstView.as_view(),
         name='riverslegal_careers'),
 
-    url(regex='^camposycampos/contact/$',
+    url(regex='^riverslegal/contact/$',
         view=views.RiversLegalContactView.as_view(),
         name='riverslegal_contact'),
 ]
