@@ -146,4 +146,12 @@ urlpatterns = [
     url(regex='^camposycampos/contact/$',
         view=views.CamposycamposContactView.as_view(),
         name='camposycampos_contact'),
+
+    url(regex='^riverslegal/careers/$',
+        view=views.RiversLegalCareerstView.as_view(),
+        name='riverslegal_careers'),
+
+    url(regex='^camposycampos/contact/$',
+        view=views.RiversLegalContactView.as_view(),
+        name='riverslegal_contact'),
 ]
