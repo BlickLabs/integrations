@@ -642,3 +642,21 @@ class CamposycamposContactView(MailgunGenericContactView):
     EMAIL_TEMPLATE = 'email/generic_contact.html'
     FROM_TEXT = 'Especialistas en derecho penal | Campos & Campos'
     SUBJECT = 'Nuevo mensaje desde la página web'
+
+
+class RiversLegalCareerstView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.RIVERSLEGAL_CAREERS_MAILGUN_DOMAIN
+    RECIPIENT = settings.RIVERSLEGAL_CAREERS_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'We are looking for talented people | Rivers Legal'
+    SUBJECT = 'New message from website'
+
+
+class RiversLegalContactView(MailgunGenericContactView):
+    KEY = settings.MAILGUN_API_KEY
+    DOMAIN = settings.RIVERSLEGAL_CONTACT_MAILGUN_DOMAIN
+    RECIPIENT = settings.RIVERSLEGAL_CONTACT_MAILGUN_RECIPIENT
+    EMAIL_TEMPLATE = 'email/generic_contact.html'
+    FROM_TEXT = 'Contact Us | Rivers Legal'
+    SUBJECT = 'New message from website'
