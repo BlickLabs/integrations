@@ -7,7 +7,7 @@
 <body>
   {% if name %}
     <p>
-      Nombre: {{ name }} {{ last_name }}
+      Nombre: {{ name }} {% if last_name %}{{ last_name }}{% endif %}
     </p>
   {% endif %}
   {% if email %}
