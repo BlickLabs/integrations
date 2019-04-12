@@ -295,6 +295,8 @@ class RERHomepageView(MailgunGenericContactView):
         ctx = {
             'candidatename': request.POST.get('candidatename'),
             'candidateemail': request.POST.get('candidateemail'),
+            'candidatecompany': request.POST.get('candidatecompany'),
+            'candidatecfe': request.POST.get('candidatecfe'),
             'candidatemessage': request.POST.get('candidatemessage')
         }
 
