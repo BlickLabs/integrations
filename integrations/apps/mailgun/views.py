@@ -155,6 +155,7 @@ class WorkingLabsAppointmentView(MailgunGenericContactView):
     def post(self, request):
         ctx = {
             'completename': request.POST.get('completename'),
+            'email': request.POST.get('email'),
             'telnumber': request.POST.get('telnumber'),
             'peopleteam': request.POST.get('peopleteam'),
             'date': request.POST.get('date'),
