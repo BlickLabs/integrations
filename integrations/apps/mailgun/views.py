@@ -161,8 +161,10 @@ class WorkingLabsAppointmentView(MailgunGenericContactView):
             'date': request.POST.get('date'),
             'time': request.POST.get('time'),
         }
+
+	origin = "%s" % (request.META["HTTP_ORIGIN"])
 	
-	if request.META['HTTP_ORIGIN'] == 'http://workingch.com':
+	if origin == 'http://workingch.com':
 		body = loader.render_to_string(self.EMAIL_TEMPLATE, ctx)
 
             	endpoint = 'https://api.mailgun.net/v3/{0}/messages'.format(self.DOMAIN)
@@ -174,14 +176,14 @@ class WorkingLabsAppointmentView(MailgunGenericContactView):
                     	'html': body
                 	})
 	else:
-	    pass
+		response = "Error"
 
         if response.status_code != 200:
             value = '0'
         else:
             value = '1'
-	
-        return HttpResponse(value)
+
+        return HttpResponse("%s" % (request.META["HTTP_ORIGIN"]))
 
 
 class AguavientoContact(MailgunGenericContactView):
