@@ -178,7 +178,7 @@ class WorkingLabsAppointmentView(MailgunGenericContactView):
         else:
             value = '1'
 
-        return HttpResponse(request.POST)
+        return HttpResponse(self)
 
 
 class AguavientoContact(MailgunGenericContactView):
