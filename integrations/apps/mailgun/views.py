@@ -180,6 +180,7 @@ class WorkingLabsAppointmentView(MailgunGenericContactView):
 
         return HttpResponse(request.POST)
 
+
 class AguavientoContact(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
     DOMAIN = settings.AGUAVIENTO_DOMAIN
