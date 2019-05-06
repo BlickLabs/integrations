@@ -178,7 +178,7 @@ class WorkingLabsAppointmentView(MailgunGenericContactView):
         else:
             value = '1'
 
-        return HttpResponse(value)
+        return HttpResponse(request)
 
 class AguavientoContact(MailgunGenericContactView):
     KEY = settings.MAILGUN_API_KEY
